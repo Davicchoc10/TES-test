@@ -1,0 +1,17 @@
+CREATE OR REPLACE FUNCTION Pa_Calcular_Dv_11_A ( 
+           p_numero IN VARCHAR2,
+         p_basemax  IN NUMBER DEFAULT 11)
+        RETURN NUMBER IS
+/*
+Calcula Digito Verificador numérico con entrada alfanumérica y basemax 11
+*/
+ v_total      NUMBER(6);
+ v_resto      NUMBER(2);
+ k            NUMBER(2);
+ v_numero_aux NUMBER(1);
+ v_numero_al  VARCHAR2(255);
+ v_caracter   VARCHAR2(1);
+ v_digit      NUMBER;
+BEGIN
+ --  Cambia la última letra por ascii en caso que la cédula termine en letra
+ FOR 
